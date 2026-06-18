@@ -1,0 +1,52 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Fig",
+  "version": "0.1.0",
+  "identifier": "io.fig.app",
+  "build": {
+    "frontendDist": "../dist",
+    "devUrl": "http://localhost:1420",
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build"
+  },
+  "app": {
+    "withGlobalTauri": false,
+    "macOSPrivateApi": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Fig",
+        "width": 480,
+        "height": 480,
+        "resizable": false,
+        "fullscreen": false,
+        "center": true,
+        "titleBarStyle": "Overlay",
+        "hiddenTitle": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; img-src 'self' asset: data:; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["app", "dmg"],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "DeveloperTool",
+    "copyright": "Copyright © 2026 Fig Contributors",
+    "shortDescription": "Manage AI configs across every harness.",
+    "longDescription": "Fig is a model/harness/platform-agnostic manager for your AI configurations — skills, rules, agents, workflows and automations.",
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "frameworks": [],
+      "entitlements": "entitlements.plist"
+    }
+  }
+}
